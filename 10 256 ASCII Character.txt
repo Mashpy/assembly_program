@@ -1,0 +1,20 @@
+; A Program to display 256 ASCII Character/Entire IBM character set.
+
+solution:
+
+.MODEL SMALL
+.STACK 100H
+.CODE
+  MAIN PROC
+  MOV AH,2
+  MOV CX,256
+  MOV DL,0
+PRINT_LOOP:
+ INT 21H
+ INC DL
+ DEC CX
+ INZ PRINT_LOOP
+ MOV AH,4CH
+ INT 21H
+ MAIN PROC
+ END MAIN
